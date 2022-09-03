@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 function App() {
+  console.log("render APp");
+  const location = useLocation();
+  console.log(location);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <h1>Welcome to Main page of Application</h1>
+        <p> This page is also persist page</p>
+        <Link to="login"> Login </Link> <br />
+        <Link to="about"> About </Link> <br />
+        <Link to="admin"> Admin </Link>
+      </div>
+
+      {location.pathname === "/admin" ? (
+        <div>YOu can not see this page</div>
+      ) : (
+        <Outlet />
+      )}
+    </>
   );
 }
 
