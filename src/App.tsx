@@ -7,19 +7,23 @@ function App() {
   console.log(location);
   return (
     <>
-      <div>
-        <h1>Welcome to Main page of Application</h1>
-        <p> This page is also persist page</p>
-        <Link to="login"> Login </Link> <br />
-        <Link to="about"> About </Link> <br />
+      <div
+        style={{
+          display: "flex",
+          width: "300px",
+          justifyContent: "space-around",
+          color: "darkgray",
+        }}
+      >
+        <Link to="login"> Login </Link>
+        <Link to="about"> About </Link>
         <Link to="admin"> Admin </Link>
+        <Link to="user"> User </Link>
       </div>
 
-      {location.pathname === "/admin" ? (
-        <div>YOu can not see this page</div>
-      ) : (
+      <div style={{ margin: "15px" }}>
         <Outlet />
-      )}
+      </div>
     </>
   );
 }

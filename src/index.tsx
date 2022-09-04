@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { AboutPage, AdminPage, LoginPage } from "./routes";
+import { AboutPage, AdminPage, LoginPage, User, UserDetail } from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -17,6 +17,9 @@ root.render(
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/user" element={<User />}>
+            <Route path=":userId" element={<UserDetail />} />
+          </Route>
           <Route path="*" element={<App />} />
         </Route>
       </Routes>
