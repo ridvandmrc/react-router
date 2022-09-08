@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 function App() {
-  console.log("render APp");
   const location = useLocation();
-  console.log(location);
+  useEffect(() => {
+    console.log("location has been changed: ", location);
+  }, [location]);
   return (
     <>
       <div

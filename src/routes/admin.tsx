@@ -1,6 +1,18 @@
-export const AdminPage = () => {
-  console.log('Render Admin')
+import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
-    return <div>This is admin page</div>;
-  };
-  
+export const AdminPage = () => {
+  const [see, setSee] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSee(false);
+    }, 5000);
+  }, []);
+
+  return see ? (
+    <div>You can not see this page, your role has to be ADMIN</div>
+  ) : (
+    <Navigate to={"/"} />
+  );
+};
